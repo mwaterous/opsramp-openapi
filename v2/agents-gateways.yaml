@@ -41,7 +41,12 @@ info:
 
     OpenAPI (or at least, Stoplight.io's implementation of OpenAPI) does not support empty strings when a specific string format is called out. This most often became a problem on fields like "updatedTime", which should be format date-time IF they are populated, but are often blank in examples, especially examples for Create rather than Update.
   contact:
-    name: none
+    name: OpsRamp Support
+    email: support@opsramp.com
+    url: https://www.opsramp.com/about-opsramp/contact-us/
+  externalDocs:
+    description: OpsRamp API Documentation
+    url: https://docs.opsramp.com/api/
 tags:
   - name: agents-gateways
   - name: alerts
