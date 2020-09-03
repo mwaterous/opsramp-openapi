@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Agents and Gateways
-  version: 2.0
+  version: 2.0.0
   description: |-
     Endpoints associated with agents and gateways.
 
