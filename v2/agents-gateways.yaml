@@ -2,68 +2,22 @@ openapi: 3.0.0
 info:
   title: Agents and Gateways
   version: 2.0.0
-  description: |-
-    Endpoints associated with agents and gateways.
-
-    ## go back and fix all the Token <TOKEN> in sample cURLs
-    ## For the following, variables are used INSIDE the query, and usage needs to be documented
-    - /api/v2/tenants/{tenantId}/rosters/search
-    - /api/v2/tenants/{tenantId}/integrations/activity
-
-    ## for resources-update-synthetic-post/
-    the path is totally wrong, doesn't make any sense
-
-    are the params `sslCertPath` and `SslCertKeyPath` really capitalized differently? And the sample request doen't match the listed parameters?
-
-    ## for alert-escalation-policy-by-alertid-get/
-    something is wrong, there's a whole list of parameters, but it's a GET endpoint, there's no request body to put them in.
-     
-    ## for integrations cloud-discovery-update-put/ and integrations cloud-discovery-update-put
-    does azure really use POST for updates while Google and AWS use PUT?
-
-    resource-management resources-create-post/
-    /api/v2/tenants/{tenantId}/resources
-    used to be many endpoints, but since distinction is in the JSON payload not the path, OpenAPI disallows dupoklicate paths. Because of this, cannot use unique objects to indicate mandatory attributes per type.
-
-    resource-management topology-data-by-relationships-get/
-    /api/v2/tenants/{tenantId}/topology/{resourceUUID}
-    Response uses weird keyes inconsistent with every other endpoint which include caps, spaces, and colons
-
-    Several endpoints could probably be revised and made more clear and simple with the addtion of <object>Full and <object>Minimal versions that can be used in different places as appropriate.
-
-    In tickets, some of the models are mis-named. I named them after the first instance I saw, but they turned out to be identical for all endpoints regardless of entity.
-
-    If the ticket entities in the Tickets API are in fact supposed to be identical regardless of the variations in the examples, the whole API can be simplified by redefining the path with a new parameter and rewording all the duplicate endpoints.
-
-    Probably the single most common error/inconsistency is boolean or integer values returned in JSON as a string (e.g 'true'), especially when the value is returned as a string in some examples and an integer or boolean in others.
-
-    Previous copy-paste errors such as on https://docs.opsramp.com/api/tickets/tasks-search-get/ where the example response for include=statusFlow is just a copy of the previous example for include=customFields and doesn't actually include the statusFlow field.
-
-    OpenAPI (or at least, Stoplight.io's implementation of OpenAPI) does not support empty strings when a specific string format is called out. This most often became a problem on fields like "updatedTime", which should be format date-time IF they are populated, but are often blank in examples, especially examples for Create rather than Update.
+  description: null
   contact:
     name: OpsRamp Support
     email: support@opsramp.com
-    url: https://www.opsramp.com/about-opsramp/contact-us/
+    url: 'https://www.opsramp.com/about-opsramp/contact-us/'
 tags:
   - name: agents-gateways
-  - name: alerts
-  - name: automation
-  - name: exports
-  - name: integrations
-  - name: knowledge-base
-  - name: metrics
-  - name: monitoring
-  - name: patching
-  - name: resource-management
-  - name: tenancy-access-controls
-  - name: tickets
 servers:
   - url: 'https://api.opsramp.com'
     description: Partner - All Others
-  - url: 'https://{partner_name}.api.opsramp.com'
-    description: Partner - Custom Brand
-  - url: 'https://{client_name}.api.opsramp.com'
-    description: Partner and Client both Custom Branded
+  - url: 'https://{subdomain}.api.opsramp.com'
+    description: Partner or Client custom branded sub-domain
+    variables:
+      subdomain:
+        default: demo
+        description: Custom sub-domain assigned to the client
 paths:
   /api/v2/applicationservice:
     post:
@@ -350,7 +304,7 @@ paths:
                 example-1:
                   value:
                     servers: 'xxx,xxx'
-                    NTP Status: OFF
+                    NTP Status: 'OFF'
                     time: 'Tue May 19 21:40:08 UTC 2020'
       externalDocs:
         url: 'https://docs.opsramp.com/api/agents-gateways/gateways/gateway-ntp-details-get/'
