@@ -6,7 +6,7 @@ info:
   contact:
     name: OpsRamp Support
     email: support@opsramp.com
-    url: https://www.opsramp.com/about-opsramp/contact-us/
+    url: 'https://www.opsramp.com/about-opsramp/contact-us/'
 tags:
   - name: agents-gateways
   - name: alerts
@@ -425,6 +425,19 @@ paths:
         name: tenantId
         in: path
         required: true
+        description: |
+          This endpoint is used to retrieve the details of an installation activity of installed integration activity.
+
+          ## Sample URLs
+          ```
+          https://{api-url}/api/v2/tenants/{tenantId}/integrations/activity
+          ```
+    post:
+      summary: ''
+      operationId: post-api-v2-tenants-tenantId-integrations-activity
+      responses:
+        '200':
+          description: OK
   '/api/v2/tenants/{tenantId}/policies/discovery':
     post:
       summary: Create discovery profile
@@ -5309,6 +5322,11 @@ components:
         filterType:
           type: string
           description: |2-
+
+
+
+
+
 
 
 
