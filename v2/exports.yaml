@@ -22,13 +22,7 @@ paths:
   '/api/v2/exports/tenants/{tenantId}/create':
     post:
       summary: Create on-demand batch export
-      description: |
-        This endpoint is used to create an on-demand batch export template.
-
-        ## Sample URLs
-        ```
-        https://api.opsramp.com/api/v2/exports/tenants/msp_3/create
-        ```
+      description: This endpoint is used to create an on-demand batch export template.
       operationId: exports-create-post/
       tags:
         - exports

@@ -81,13 +81,7 @@ paths:
       parameters: []
   '/api/v2/download/gateway/{packageName}':
     get:
-      description: |-
-        This API is used to download gateway files from the OpsRamp download server.
-
-        ## Sample URL
-        ```
-        https://{api-url}/api/v2/download/gateway/iso
-        ```
+      description: This API is used to download gateway files from the OpsRamp download server.
       operationId: gateways/gateway-download/
       tags:
         - agents-gateways
@@ -599,16 +593,6 @@ paths:
       summary: Download agent for Windows
       description: |-
         This endpoint is used to download the agent for Windows resources.
-
-        ## Sample URLs
-        To download the Windows agent directly:
-        ```
-        https://{api-url}/api/v2/tenants/client_93/agents/windows
-        ```
-        To download the Windows agent through the gateway:
-        ```
-        https://{api-url}/api/v2/tenants/client_93/agents/windows?profileId=10
-        ```
 
         This returns the JSON payload containing package name, package size, package checksum, and the package S3 bucket URL to directly download the agent.
       operationId: agents/agents-gateways-agent-windows-download-get/
@@ -1700,7 +1684,7 @@ paths:
         |startCreationDate|{startCreationDate}|Search for the management profile created within a certain duration. Start indicates the from date. An example is: 2016-06-10T10:40:20 0000 (GMT).|
         |endCreationDate|{endCreationDate}|Search for the management profile created within a certain duration. End indicates the to date. An Example is: 2016-06-20T10:40:20 0000 (GMT).|
 
-        ### Notes
+        ## Notes
         1. Special characters in the query string
             1. Plus (+) indicates next field and must be URL encoded.
             2. Color (:) indicates Equals. An example is: key: value.
